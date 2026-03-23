@@ -1,0 +1,608 @@
+{\rtf1\ansi\ansicpg936\cocoartf2761
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 <!DOCTYPE html>\
+<html lang="zh-CN">\
+<head>\
+    <meta charset="UTF-8">\
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">\
+    <title>\uc0\u22612 \u32599 \u28789 \u38236  \'b7 \u25506 \u23547 \u20320 \u30340 \u19987 \u23646 \u29260 \u28789 </title>\
+    <!-- \uc0\u24341 \u20837 Google Fonts \u25552 \u21319 \u36136 \u24863  -->\
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">\
+    <!-- Font Awesome 6 (\uc0\u20813 \u36153 \u22270 \u26631 \u24211 ) -->\
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">\
+    <style>\
+        * \{\
+            margin: 0;\
+            padding: 0;\
+            box-sizing: border-box;\
+        \}\
+\
+        body \{\
+            min-height: 100vh;\
+            background: radial-gradient(circle at 10% 30%, #1a1a2e, #0b0b1a);\
+            font-family: 'Inter', sans-serif;\
+            color: #f5efe7;\
+            display: flex;\
+            justify-content: center;\
+            align-items: center;\
+            padding: 1.5rem;\
+        \}\
+\
+        /* \uc0\u20027 \u23481 \u22120  \u31070 \u31192 \u21345 \u29255 \u39118 \u26684  */\
+        .tarot-container \{\
+            max-width: 800px;\
+            width: 100%;\
+            background: rgba(20, 20, 35, 0.6);\
+            backdrop-filter: blur(12px);\
+            border-radius: 2.5rem;\
+            border: 1px solid rgba(218, 185, 125, 0.3);\
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(218, 185, 125, 0.1) inset;\
+            overflow: hidden;\
+            transition: all 0.3s ease;\
+        \}\
+\
+        /* \uc0\u22836 \u37096 \u31070 \u31192 \u21306 \u22495  */\
+        .hero \{\
+            text-align: center;\
+            padding: 2rem 1.5rem 1.2rem;\
+            border-bottom: 1px dashed rgba(218, 185, 125, 0.4);\
+            background: rgba(0, 0, 0, 0.2);\
+        \}\
+\
+        .hero h1 \{\
+            font-family: 'Cormorant Garamond', serif;\
+            font-size: 2.6rem;\
+            font-weight: 500;\
+            letter-spacing: 2px;\
+            background: linear-gradient(135deg, #ECD5A3, #B88B4A);\
+            -webkit-background-clip: text;\
+            background-clip: text;\
+            color: transparent;\
+            text-shadow: 0 2px 5px rgba(0,0,0,0.2);\
+        \}\
+\
+        .hero p \{\
+            margin-top: 0.8rem;\
+            font-size: 0.95rem;\
+            opacity: 0.8;\
+            font-weight: 300;\
+        \}\
+\
+        .mystic-symbol \{\
+            font-size: 2rem;\
+            margin: 0.5rem 0 0;\
+            letter-spacing: 8px;\
+            color: #dbba7a;\
+        \}\
+\
+        /* \uc0\u27979 \u35797 \u37096 \u20998 \u21345 \u29255 \u21306  */\
+        .quiz-section \{\
+            padding: 1.8rem 2rem 2rem;\
+        \}\
+\
+        .question-card \{\
+            background: rgba(10, 10, 20, 0.6);\
+            border-radius: 1.8rem;\
+            padding: 1.5rem;\
+            margin-bottom: 2rem;\
+            border-left: 4px solid #dbba7a;\
+            transition: all 0.2s;\
+        \}\
+\
+        .question-text \{\
+            font-size: 1.3rem;\
+            font-weight: 600;\
+            margin-bottom: 1.5rem;\
+            display: flex;\
+            align-items: center;\
+            gap: 10px;\
+        \}\
+\
+        .question-text i \{\
+            color: #e7bc7e;\
+            font-size: 1.4rem;\
+        \}\
+\
+        .options \{\
+            display: flex;\
+            flex-direction: column;\
+            gap: 0.9rem;\
+        \}\
+\
+        .option \{\
+            background: rgba(30, 30, 48, 0.7);\
+            border-radius: 2rem;\
+            padding: 0.8rem 1.2rem;\
+            display: flex;\
+            align-items: center;\
+            cursor: pointer;\
+            transition: all 0.2s ease;\
+            border: 1px solid rgba(219, 186, 122, 0.2);\
+        \}\
+\
+        .option:hover \{\
+            background: rgba(70, 60, 90, 0.8);\
+            border-color: #dbba7a;\
+            transform: translateX(6px);\
+        \}\
+\
+        .option.selected \{\
+            background: linear-gradient(95deg, #2c263f, #1e1b30);\
+            border-color: #e6c280;\
+            box-shadow: 0 0 10px rgba(219, 186, 122, 0.3);\
+        \}\
+\
+        .option .opt-marker \{\
+            width: 28px;\
+            height: 28px;\
+            border-radius: 50%;\
+            background: rgba(219, 186, 122, 0.2);\
+            display: inline-flex;\
+            align-items: center;\
+            justify-content: center;\
+            margin-right: 1rem;\
+            font-weight: bold;\
+            color: #e6c280;\
+        \}\
+\
+        .option.selected .opt-marker \{\
+            background: #dbba7a;\
+            color: #1e1a2f;\
+        \}\
+\
+        .option-text \{\
+            font-size: 1rem;\
+            font-weight: 400;\
+            flex: 1;\
+        \}\
+\
+        /* \uc0\u25353 \u38062  */\
+        .btn-submit \{\
+            background: linear-gradient(120deg, #b57c3a, #8b5a2b);\
+            border: none;\
+            width: 100%;\
+            padding: 1rem;\
+            font-size: 1.2rem;\
+            font-weight: 600;\
+            font-family: inherit;\
+            color: #faf3e0;\
+            border-radius: 3rem;\
+            cursor: pointer;\
+            transition: all 0.2s;\
+            letter-spacing: 2px;\
+            margin-top: 0.5rem;\
+            box-shadow: 0 8px 18px rgba(0,0,0,0.3);\
+            display: flex;\
+            justify-content: center;\
+            align-items: center;\
+            gap: 12px;\
+        \}\
+\
+        .btn-submit:hover \{\
+            background: linear-gradient(120deg, #cf964c, #a46e34);\
+            transform: scale(0.98);\
+            box-shadow: 0 4px 12px black;\
+        \}\
+\
+        /* \uc0\u32467 \u26524 \u21306 \u22495  - \u29260 \u28789 \u26174 \u29616  */\
+        .result-section \{\
+            padding: 1.2rem 2rem 2rem;\
+            border-top: 1px solid rgba(218, 185, 125, 0.3);\
+            background: rgba(0, 0, 0, 0.2);\
+            transition: all 0.4s ease;\
+        \}\
+\
+        .spirit-card \{\
+            background: linear-gradient(145deg, #211e30, #15131f);\
+            border-radius: 2rem;\
+            padding: 1.5rem;\
+            text-align: center;\
+            border: 1px solid #c9aa5f;\
+            box-shadow: 0 15px 25px rgba(0,0,0,0.5);\
+            animation: fadeGlow 1s ease-out;\
+        \}\
+\
+        @keyframes fadeGlow \{\
+            0% \{ opacity: 0; transform: translateY(20px);\}\
+            100% \{ opacity: 1; transform: translateY(0);\}\
+        \}\
+\
+        .spirit-icon \{\
+            font-size: 4rem;\
+            background: #2e2a42;\
+            width: 100px;\
+            height: 100px;\
+            display: flex;\
+            align-items: center;\
+            justify-content: center;\
+            border-radius: 50%;\
+            margin: 0 auto 1rem;\
+            border: 2px solid #e6bf77;\
+            color: #f3da9b;\
+        \}\
+\
+        .spirit-name \{\
+            font-size: 2rem;\
+            font-family: 'Cormorant Garamond', serif;\
+            font-weight: 700;\
+            letter-spacing: 2px;\
+            color: #eedbae;\
+        \}\
+\
+        .spirit-desc \{\
+            margin: 1rem 0;\
+            font-size: 1rem;\
+            line-height: 1.5;\
+            opacity: 0.9;\
+        \}\
+\
+        .spirit-quote \{\
+            font-style: italic;\
+            border-top: 1px dashed #c9aa5f;\
+            padding-top: 1rem;\
+            margin-top: 0.5rem;\
+            font-size: 0.9rem;\
+            color: #cfc2a5;\
+        \}\
+\
+        .btn-reset \{\
+            background: transparent;\
+            border: 1px solid #dbba7a;\
+            padding: 0.6rem 1.4rem;\
+            border-radius: 2rem;\
+            color: #eedbaa;\
+            cursor: pointer;\
+            font-weight: 500;\
+            margin-top: 1.5rem;\
+            transition: 0.2s;\
+            width: auto;\
+            display: inline-flex;\
+            align-items: center;\
+            gap: 8px;\
+        \}\
+\
+        .btn-reset:hover \{\
+            background: #dbba7a20;\
+            border-color: #f3d594;\
+        \}\
+\
+        .hidden \{\
+            display: none;\
+        \}\
+\
+        footer \{\
+            text-align: center;\
+            font-size: 0.7rem;\
+            padding: 1rem;\
+            opacity: 0.5;\
+            border-top: 1px solid rgba(255,255,255,0.05);\
+        \}\
+\
+        @media (max-width: 550px) \{\
+            .quiz-section \{\
+                padding: 1rem;\
+            \}\
+            .question-text \{\
+                font-size: 1.1rem;\
+            \}\
+            .hero h1 \{\
+                font-size: 2rem;\
+            \}\
+        \}\
+    </style>\
+</head>\
+<body>\
+<div class="tarot-container">\
+    <div class="hero">\
+        <div class="mystic-symbol">\
+            <i class="fas fa-moon"></i> <i class="fas fa-star-of-life"></i> <i class="fas fa-crown"></i>\
+        </div>\
+        <h1>\uc0\u10024  \u22612 \u32599 \u28789 \u38236  \u10024 </h1>\
+        <p>\uc0\u24515 \u20043 \u25152 \u21521  \'b7 \u29260 \u28789 \u33258 \u29616 </p>\
+        <p style="font-size: 0.8rem; margin-top: 0.2rem;">\uc0\u22238 \u31572 \u20197 \u19979 \u38382 \u39064 \u65292 \u25581 \u31034 \u23432 \u25252 \u20320 \u30340 \u31070 \u31192 \u29260 \u28789 </p>\
+    </div>\
+\
+    <div class="quiz-section" id="quizSection">\
+        <!-- \uc0\u38382 \u39064 1 -->\
+        <div class="question-card" data-q="0">\
+            <div class="question-text"><i class="fas fa-feather-alt"></i> 1. \uc0\u24403 \u20320 \u38754 \u23545 \u37325 \u22823 \u25225 \u25321 \u65292 \u31532 \u19968 \u30452 \u35273 \u26159 \u65311 </div>\
+            <div class="options">\
+                <div class="option" data-val="0"><span class="opt-marker">A</span><span class="option-text">\uc0\u21548 \u20174 \u20869 \u24515 \u30340 \u29378 \u28909 \u20914 \u21160 \u65292 \u36861 \u38543 \u30452 \u35273 \u30340 \u28779 \u28976 </span></div>\
+                <div class="option" data-val="1"><span class="opt-marker">B</span><span class="option-text">\uc0\u29702 \u24615 \u20998 \u26512 \u21033 \u24330 \u65292 \u26500 \u31569 \u28165 \u26224 \u35745 \u21010 </span></div>\
+                <div class="option" data-val="2"><span class="opt-marker">C</span><span class="option-text">\uc0\u24863 \u21463 \u21608 \u22260 \u20154 \u30340 \u24773 \u32490 \u65292 \u23547 \u27714 \u21644 \u35856 \u20849 \u40483 </span></div>\
+                <div class="option" data-val="3"><span class="opt-marker">D</span><span class="option-text">\uc0\u27785 \u24605 \u20901 \u24819 \u65292 \u25506 \u32034 \u20869 \u22312 \u30495 \u29702 \u19982 \u26234 \u24935 </span></div>\
+            </div>\
+        </div>\
+        <!-- \uc0\u38382 \u39064 2 -->\
+        <div class="question-card" data-q="1">\
+            <div class="question-text"><i class="fas fa-dove"></i> 2. \uc0\u20320 \u26356 \u21521 \u24448 \u21738 \u31181 \u29983 \u27963 \u26041 \u24335 \u65311 </div>\
+            <div class="options">\
+                <div class="option" data-val="0"><span class="opt-marker">A</span><span class="option-text">\uc0\u20805 \u28385 \u20882 \u38505 \u19982 \u21464 \u21270 \u65292 \u19981 \u26029 \u31361 \u30772 \u26497 \u38480 </span></div>\
+                <div class="option" data-val="1"><span class="opt-marker">B</span><span class="option-text">\uc0\u31283 \u23450 \u31209 \u24207 \u65292 \u25484 \u25511 \u20840 \u23616 \u65292 \u24314 \u31435 \u23433 \u20840 \u29579 \u22269 </span></div>\
+                <div class="option" data-val="2"><span class="opt-marker">C</span><span class="option-text">\uc0\u33402 \u26415 \u21019 \u20316 \u65292 \u29233 \u19982 \u32654 \u30340 \u28363 \u20859 \u65292 \u28010 \u28459 \u33258 \u30001 </span></div>\
+                <div class="option" data-val="3"><span class="opt-marker">D</span><span class="option-text">\uc0\u23396 \u29420 \u27714 \u32034 \u65292 \u31070 \u31192 \u23398 \u19982 \u21746 \u23398 \u30340 \u31934 \u31070 \u19990 \u30028 </span></div>\
+            </div>\
+        </div>\
+        <!-- \uc0\u38382 \u39064 3 -->\
+        <div class="question-card" data-q="2">\
+            <div class="question-text"><i class="fas fa-hand-sparkles"></i> 3. \uc0\u26379 \u21451 \u20204 \u26368 \u24120 \u24418 \u23481 \u20320 \u30340 \u20851 \u38190 \u35789 \u65311 </div>\
+            <div class="options">\
+                <div class="option" data-val="0"><span class="opt-marker">A</span><span class="option-text">\uc0\u28909 \u24773 \u12289 \u21191 \u25954 \u12289 \u20805 \u28385 \u29190 \u21457 \u21147 </span></div>\
+                <div class="option" data-val="1"><span class="opt-marker">B</span><span class="option-text">\uc0\u21487 \u38752 \u12289 \u21153 \u23454 \u12289 \u39046 \u23548 \u32773 \u27668 \u36136 </span></div>\
+                <div class="option" data-val="2"><span class="opt-marker">C</span><span class="option-text">\uc0\u28201 \u26580 \u12289 \u21892 \u35299 \u20154 \u24847 \u12289 \u27835 \u24840 \u32773 </span></div>\
+                <div class="option" data-val="3"><span class="opt-marker">D</span><span class="option-text">\uc0\u25935 \u38160 \u12289 \u28145 \u36995 \u12289 \u31070 \u31192 \u20027 \u20041 \u32773 </span></div>\
+            </div>\
+        </div>\
+\
+        <button class="btn-submit" id="revealBtn"><i class="fas fa-tarot"></i> \uc0\u25581 \u31034 \u25105 \u30340 \u29260 \u28789  <i class="fas fa-eye"></i></button>\
+    </div>\
+\
+    <div class="result-section hidden" id="resultSection">\
+        <div class="spirit-card" id="spiritCard">\
+            <!-- \uc0\u21160 \u24577 \u27880 \u20837 \u32467 \u26524  -->\
+        </div>\
+        <div style="text-align: center;">\
+            <button class="btn-reset" id="resetBtn"><i class="fas fa-undo-alt"></i> \uc0\u37325 \u26032 \u21344 \u21340 </button>\
+        </div>\
+    </div>\
+    <footer>\
+        <i class="fas fa-gem"></i> \uc0\u26143 \u36784 \u25351 \u24341  \'b7 \u29260 \u28789 \u20302 \u35821  <i class="fas fa-gem"></i>\
+    </footer>\
+</div>\
+\
+<script>\
+    // \uc0\u23450 \u20041 \u29260 \u28789 \u24211  \'97\'97 \u27599 \u20010 \u29260 \u28789 \u23545 \u24212 \u19981 \u21516 \u24615 \u26684 \u32452 \u21512 \u20542 \u21521 \
+    // \uc0\u25105 \u20204 \u20381 \u25454 \u19977 \u20010 \u38382 \u39064 \u30340 \u20542 \u21521 \u20540 (0,1,2,3)\u30340 \u24635 \u21644 /\u29305 \u24449 \u26469 \u21305 \u37197 \u19981 \u21516 \u29260 \u28789 \u65292 \u26356 \u26377 \u36259 \u30340 \u26144 \u23556 \u36923 \u36753 \
+    // \uc0\u29260 \u28789 \u25968 \u25454 : \u21517 \u31216 , \u25551 \u36848 , \u31668 \u35328 , \u22270 \u26631 class\
+    const spirits = [\
+        \{\
+            name: "\uc0\u55357 \u56613  \u26435 \u26454 \u29579 \u29260  \'b7 \u28872 \u28976 \u21531 \u20027 ",\
+            desc: "\uc0\u20320 \u26159 \u22825 \u29983 \u30340 \u24320 \u25299 \u32773 \u65292 \u28789 \u39746 \u20013 \u29123 \u28903 \u30528 \u19981 \u28781 \u30340 \u21019 \u36896 \u20043 \u28779 \u12290 \u26435 \u26454 \u29260 \u28789 \u36171 \u20104 \u20320 \u26080 \u38480 \u30340 \u34892 \u21160 \u21147 \u19982 \u21191 \u27668 \u65292 \u25954 \u20110 \u22312 \u28151 \u27788 \u20013 \u24320 \u36767 \u36947 \u36335 \u12290 \u20320 \u20687 \u19968 \u22242 \u37326 \u28779 \u65292 \u25152 \u21040 \u20043 \u22788 \u30342 \u28949 \u21457 \u29983 \u26426 \u12290 ",\
+            quote: "\uc0\u12300 \u20197 \u28608 \u24773 \u20026 \u26454 \u65292 \u28857 \u29123 \u21629 \u36816 \u30340 \u28779 \u28844 \u12290 \u12301 ",\
+            icon: "fas fa-fire",\
+            traitsRange: [0, 2]  // \uc0\u20559 \u21521 \u21191 \u25954 /\u20882 \u38505 /\u20914 \u21160  (dominant 0)\
+        \},\
+        \{\
+            name: "\uc0\u55357 \u56496  \u26143 \u24065 \u20061  \'b7 \u20016 \u39286 \u26234 \u32773 ",\
+            desc: "\uc0\u20320 \u30340 \u24615 \u26684 \u27785 \u31283 \u22914 \u23665 \u65292 \u36861 \u27714 \u23454 \u36136 \u30340 \u25104 \u23601 \u19982 \u23433 \u20840 \u12290 \u26143 \u24065 \u29260 \u28789 \u35937 \u24449 \u23500 \u36275 \u19982 \u33258 \u24459 \u65292 \u20320 \u25797 \u38271 \u23558 \u29702 \u24819 \u33853 \u22320 \u65292 \u24182 \u20139 \u21463 \u29420 \u22788 \u30340 \u20248 \u38597 \u12290 \u20320 \u25026 \u24471 \u22914 \u20309 \u32789 \u32792 \u29983 \u27963 \u65292 \u25910 \u33719 \u20869 \u24515 \u30340 \u20174 \u23481 \u33457 \u22253 \u12290 ",\
+            quote: "\uc0\u12300 \u20016 \u30408 \u26469 \u33258 \u32789 \u32792 \u65292 \u38745 \u40664 \u34164 \u21547 \u21147 \u37327 \u12290 \u12301 ",\
+            icon: "fas fa-coins",\
+            traitsRange: [1, 1]\
+        \},\
+        \{\
+            name: "\uc0\u55357 \u56487  \u22307 \u26479 \u30343 \u21518  \'b7 \u24515 \u28789 \u22307 \u32773 ",\
+            desc: "\uc0\u20320 \u30340 \u28789 \u39746 \u20805 \u28385 \u20849 \u24773 \u19982 \u29233 \u30340 \u20809 \u33426 \u12290 \u22307 \u26479 \u29260 \u28789 \u20351 \u20320 \u25317 \u26377 \u28145 \u21051 \u30340 \u30452 \u35273 \u19982 \u30103 \u24840 \u21147 \u65292 \u24635 \u33021 \u27934 \u23519 \u20182 \u20154 \u24773 \u32490 \u12290 \u20320 \u20687 \u26376 \u20809 \u19979 \u30340 \u28246 \u27700 \u65292 \u28201 \u26580 \u21364 \u34164 \u21547 \u30528 \u26080 \u36793 \u30340 \u24904 \u24754 \u12290 ",\
+            quote: "\uc0\u12300 \u29233 \u26159 \u21807 \u19968 \u30340 \u39764 \u27861 \u65292 \u28201 \u26580 \u26159 \u26368 \u24378 \u30340 \u38112 \u30002 \u12290 \u12301 ",\
+            icon: "fas fa-heart",\
+            traitsRange: [2, 2]\
+        \},\
+        \{\
+            name: "\uc0\u9876 \u65039  \u23453 \u21073 \u22269 \u29579  \'b7 \u30495 \u29702 \u20043 \u38155 ",\
+            desc: "\uc0\u20320 \u25317 \u26377 \u38160 \u21033 \u30340 \u26234 \u24935 \u19982 \u36229 \u28982 \u30340 \u27934 \u23519 \u21147 \u12290 \u23453 \u21073 \u29260 \u28789 \u36171 \u20104 \u20320 \u21078 \u26512 \u30495 \u30456 \u30340 \u21191 \u27668 \u65292 \u19981 \u30031 \u23396 \u29420 \u65292 \u36861 \u27714 \u31934 \u31070 \u30340 \u33267 \u39640 \u39046 \u22495 \u12290 \u20320 \u22914 \u23506 \u39118 \u20013 \u30340 \u21033 \u21073 \u65292 \u28165 \u26224 \u32780 \u23815 \u39640 \u12290 ",\
+            quote: "\uc0\u12300 \u30495 \u29702 \u26080 \u38656 \u20462 \u39280 \u65292 \u26234 \u24935 \u21363 \u26159 \u20809 \u26126 \u12290 \u12301 ",\
+            icon: "fas fa-feather",\
+            traitsRange: [3, 3]\
+        \},\
+        \{\
+            name: "\uc0\u55356 \u57113  \u26376 \u20142  \'b7 \u26790 \u22659 \u23432 \u25252 \u28789 ",\
+            desc: "\uc0\u20320 \u20860 \u20855 \u25935 \u24863 \u19982 \u31070 \u31192 \u20027 \u20041 \u65292 \u24472 \u24458 \u22312 \u29616 \u23454 \u19982 \u24187 \u26790 \u20043 \u38388 \u12290 \u26376 \u20142 \u29260 \u28789 \u25581 \u31034 \u20320 \u25317 \u26377 \u38750 \u20961 \u30340 \u28508 \u24847 \u35782 \u21147 \u37327 \u65292 \u21892 \u20110 \u22312 \u19981 \u30830 \u23450 \u20013 \u23547 \u25214 \u35799 \u24847 \u12290 \u20320 \u30340 \u30452 \u35273 \u26159 \u22812 \u31354 \u20013 \u26368 \u20142 \u30340 \u25351 \u24341 \u12290 ",\
+            quote: "\uc0\u12300 \u25317 \u25265 \u38452 \u24433 \u65292 \u37027 \u37324 \u34255 \u30528 \u20320 \u30340 \u22825 \u36171 \u12290 \u12301 ",\
+            icon: "fas fa-moon",\
+            traitsRange: [2, 3]\
+        \},\
+        \{\
+            name: "\uc0\u55356 \u57118  \u22826 \u38451  \'b7 \u20809 \u36745 \u20043 \u23376 ",\
+            desc: "\uc0\u20320 \u27915 \u28322 \u30528 \u29983 \u21629 \u21147 \u19982 \u20048 \u35266 \u65292 \u29031 \u20142 \u36523 \u36793 \u27599 \u19968 \u20010 \u20154 \u12290 \u22826 \u38451 \u29260 \u28789 \u20195 \u34920 \u36196 \u23376 \u20043 \u24515 \u19982 \u32988 \u21033 \u65292 \u20320 \u30456 \u20449 \u19990 \u30028 \u20805 \u28385 \u21487 \u33021 \u65292 \u24635 \u26159 \u24102 \u26469 \u27426 \u20048 \u19982 \u21551 \u36842 \u12290 ",\
+            quote: "\uc0\u12300 \u24515 \u33509 \u21521 \u38451 \u65292 \u19975 \u19990 \u30342 \u26126 \u12290 \u12301 ",\
+            icon: "fas fa-sun",\
+            traitsRange: [0, 0]\
+        \},\
+        \{\
+            name: "\uc0\u55356 \u57088  \u21629 \u36816 \u20043 \u36718  \'b7 \u26102 \u36816 \u31085 \u21496 ",\
+            desc: "\uc0\u20320 \u30456 \u20449 \u19975 \u29289 \u27969 \u36716 \u65292 \u36866 \u24212 \u21147 \u26497 \u24378 \u65292 \u24635 \u33021 \u22312 \u21464 \u21160 \u20013 \u25214 \u21040 \u24179 \u34913 \u12290 \u21629 \u36816 \u20043 \u36718 \u29260 \u28789 \u36176 \u20104 \u20320 \u36898 \u20982 \u21270 \u21513 \u30340 \u24184 \u36816 \u19982 \u35905 \u36798 \u65292 \u20320 \u26159 \u39034 \u24212 \u22825 \u21629 \u30340 \u26234 \u32773 \u12290 ",\
+            quote: "\uc0\u12300 \u36718 \u36716 \u19981 \u24687 \u65292 \u30342 \u26159 \u24681 \u20856 \u12290 \u12301 ",\
+            icon: "fas fa-chart-line",\
+            traitsRange: [1, 2]\
+        \},\
+        \{\
+            name: "\uc0\u55357 \u56385 \u65039  \u38544 \u22763  \'b7 \u26126 \u28783 \u36132 \u32773 ",\
+            desc: "\uc0\u20320 \u20869 \u30465 \u19988 \u28145 \u36995 \u65292 \u24635 \u22312 \u36861 \u23547 \u32456 \u26497 \u24847 \u20041 \u12290 \u38544 \u22763 \u29260 \u28789 \u20351 \u20320 \u25104 \u20026 \u23396 \u29420 \u30340 \u24341 \u36335 \u20154 \u65292 \u20320 \u30340 \u26234 \u24935 \u26469 \u33258 \u23490 \u38745 \u65292 \u20320 \u30340 \u25351 \u24341 \u32988 \u36807 \u21315 \u35328 \u19975 \u35821 \u12290 ",\
+            quote: "\uc0\u12300 \u29420 \u34892 \u20110 \u23665 \u24005 \u65292 \u26041 \u35265 \u26143 \u36784 \u36797 \u38420 \u12290 \u12301 ",\
+            icon: "fas fa-hiking",\
+            traitsRange: [3, 3]\
+        \}\
+    ];\
+\
+    // \uc0\u23384 \u20648 \u29992 \u25143 \u36873 \u25321  (\u27599 \u20010 \u38382 \u39064 \u30340 \u36873 \u39033 \u20540 )\
+    let answers = [null, null, null];\
+\
+    // \uc0\u33719 \u21462 \u25152 \u26377 \u36873 \u39033 \u24182 \u32465 \u23450 \u28857 \u20987 \u20107 \u20214 \
+    const questionCards = document.querySelectorAll('.question-card');\
+    \
+    function bindOptions() \{\
+        document.querySelectorAll('.option').forEach(opt => \{\
+            opt.removeEventListener('click', optionClickHandler);\
+            opt.addEventListener('click', optionClickHandler);\
+        \});\
+    \}\
+\
+    function optionClickHandler(e) \{\
+        // \uc0\u30830 \u20445 \u28857 \u20987 \u30340 \u26159 .option\u26412 \u36523 \u25110 \u20854 \u23376 \u20803 \u32032 , \u21521 \u19978 \u26597 \u25214 \
+        let targetOption = e.currentTarget;\
+        const parentCard = targetOption.closest('.question-card');\
+        if (!parentCard) return;\
+        const qIndex = parseInt(parentCard.dataset.q);\
+        const selectedVal = parseInt(targetOption.dataset.val);\
+        \
+        // \uc0\u23384 \u20648 \u31572 \u26696 \
+        answers[qIndex] = selectedVal;\
+        \
+        // \uc0\u26356 \u26032 \u26679 \u24335 : \u21516 \u19968 \u21345 \u29255 \u19979 \u31227 \u38500 \u25152 \u26377 selected\u65292 \u28982 \u21518 \u24403 \u21069 \u28155 \u21152 \
+        const siblingOptions = parentCard.querySelectorAll('.option');\
+        siblingOptions.forEach(opt => opt.classList.remove('selected'));\
+        targetOption.classList.add('selected');\
+    \}\
+    \
+    // \uc0\u26681 \u25454 \u31572 \u26696 \u35745 \u31639 \u21305 \u37197 \u30340 \u29260 \u28789  (\u36259 \u21619 \u31639 \u27861 : \u32508 \u21512 \u20542 \u21521  + \u38543 \u26426 \u20559 \u31227 \u20197 \u30830 \u20445 \u22810 \u26679 \u24615 \u20294 \u26681 \u25454 \u24615 \u26684 \u29305 \u28857 )\
+    function calculateSpirit() \{\
+        // \uc0\u22914 \u26524 \u27809 \u26377 \u23436 \u25104 \u25152 \u26377 \u38382 \u39064 \u65292 \u36820 \u22238 null\
+        if (answers.includes(null)) return null;\
+        \
+        // \uc0\u24471 \u21040 \u19977 \u20010 \u32500 \u24230 \u30340 \u20540  (0-3) \
+        const [q1, q2, q3] = answers;\
+        // \uc0\u20027 \u35201 \u20542 \u21521 : \u27714 \u21644 \u26144 \u23556 \u21040 \u20027 \u23548 \u31867 \u22411 \u65292 \u25110 \u35745 \u31639 \u27599 \u31181 \u31867 \u22411 \u30340 \u20998 \u25968 \
+        // \uc0\u35774 \u35745 \u26356 \u32454 \u33147 \u30340 \u37197 \u27604 : \u32479 \u35745 0,1,2,3\u30340 \u20010 \u25968 \u26469 \u20915 \u23450 \u20027 \u21103 \u29305 \u24449 \
+        let scoreMap = \{0:0, 1:0, 2:0, 3:0\};\
+        scoreMap[q1] += 1;\
+        scoreMap[q2] += 1;\
+        scoreMap[q3] += 1;\
+        \
+        // \uc0\u33719 \u21462 \u26368 \u39640 \u20998 \u20542 \u21521 \u20540 \
+        let dominantVal = 0;\
+        let maxCount = 0;\
+        for(let val in scoreMap) \{\
+            if(scoreMap[val] > maxCount) \{\
+                maxCount = scoreMap[val];\
+                dominantVal = parseInt(val);\
+            \}\
+        \}\
+        // \uc0\u27425 \u35201 \u20542 \u21521  (\u22914 \u26524 \u26377 \u24182 \u21015 \u30456 \u21516 \u26368 \u39640 \u65292 \u21017 \u28151 \u21512 )\
+        let secondVal = null;\
+        for(let val in scoreMap) \{\
+            let v = parseInt(val);\
+            if(v !== dominantVal && scoreMap[v] === maxCount) \{\
+                secondVal = v;\
+                break;\
+            \}\
+        \}\
+        \
+        // \uc0\u22522 \u30784 \u21305 \u37197 \u21015 \u34920 \
+        let candidates = [];\
+        // \uc0\u26681 \u25454 dominantVal\u31579 \u36873 \u29260 \u28789 \u65292 \u28982 \u21518 \u26681 \u25454 secondVal\u24494 \u35843 \u65292 \u25110 \u32773 \u20351 \u29992 \u29420 \u29305 \u30340 \u28151 \u21512 \u26144 \u23556 \
+        if(dominantVal === 0) \{\
+            // \uc0\u28779 \u35937 /\u22826 \u38451 /\u26435 \u26454 \
+            candidates = spirits.filter(s => s.traitsRange[0] === 0 || s.name.includes("\uc0\u28872 \u28976 ") || s.name.includes("\u22826 \u38451 "));\
+            if(secondVal === 2) candidates = [spirits[0], spirits[5]]; // \uc0\u26435 \u26454 \u25110 \u22826 \u38451 \
+            else if(secondVal === 3) candidates = [spirits[0], spirits[6]]; // \uc0\u26435 \u26454 +\u21629 \u36816 \u36718 \
+            else candidates = [spirits[0], spirits[5]];\
+        \} \
+        else if(dominantVal === 1) \{\
+            // \uc0\u22303 \u35937 /\u26143 \u24065 /\u21629 \u36816 \
+            candidates = spirits.filter(s => s.traitsRange[0] === 1);\
+            if(secondVal === 2) candidates = [spirits[1], spirits[6]];\
+            else if(secondVal === 0) candidates = [spirits[1], spirits[6]];\
+            else candidates = [spirits[1]];\
+        \}\
+        else if(dominantVal === 2) \{\
+            // \uc0\u27700 \u35937 /\u22307 \u26479 /\u26376 \u20142 /\u21629 \u36816 \
+            candidates = spirits.filter(s => s.traitsRange[0] === 2 || s.name.includes("\uc0\u22307 \u26479 ") || s.name.includes("\u26376 \u20142 "));\
+            if(secondVal === 3) candidates = [spirits[2], spirits[4]];\
+            else if(secondVal === 0) candidates = [spirits[2], spirits[4]];\
+            else candidates = [spirits[2], spirits[4]];\
+        \}\
+        else if(dominantVal === 3) \{\
+            // \uc0\u39118 /\u23453 \u21073 /\u38544 \u22763 /\u26376 \u20142 \
+            candidates = spirits.filter(s => s.traitsRange[0] === 3 || s.name.includes("\uc0\u23453 \u21073 ") || s.name.includes("\u38544 \u22763 "));\
+            if(secondVal === 2) candidates = [spirits[3], spirits[4]];\
+            else if(secondVal === 0) candidates = [spirits[3], spirits[7]];\
+            else candidates = [spirits[3], spirits[7]];\
+        \}\
+        \
+        // \uc0\u29305 \u27530 \u32452 \u21512 : \u19977 \u20010 \u20542 \u21521 \u23436 \u20840 \u19981 \u21516 \u65292 \u27604 \u22914 0,1,2 -> \u21629 \u36816 \u20043 \u36718 \u25110 \u32508 \u21512 \u22411 \u29260 \u28789 \
+        const uniqueVals = new Set([q1,q2,q3]).size;\
+        if(uniqueVals === 3) \{\
+            // \uc0\u19977 \u32773 \u23436 \u20840 \u19981 \u21516 \u65292 \u26159 \u24179 \u34913 \u22823 \u24072  -> \u21629 \u36816 \u20043 \u36718 \u25110 \u38544 \u22763 \u28151 \u21512 \
+            candidates = [spirits[6], spirits[7]];\
+        \}\
+        if(q1 === 2 && q2 === 2 && q3 === 2) candidates = [spirits[2]]; // \uc0\u32431 \u22307 \u26479 \
+        if(q1 === 0 && q2 === 0 && q3 === 0) candidates = [spirits[5]]; // \uc0\u32431 \u22826 \u38451 \
+        \
+        // \uc0\u21435 \u37325 \u20445 \u35777 \u33267 \u23569 \u26377 \u19968 \u20010 \
+        if(!candidates.length) candidates = [spirits[0]];\
+        \
+        // \uc0\u26681 \u25454 \u26576 \u31181 \u21704 \u24076 \u65292 \u36873 \u25321 \u26356 \u26377 \u36259 \u30340 \u32467 \u26524 \u65292 \u20294 \u20063 \u30830 \u20445 \u19968 \u33268 \u24615  (\u22522 \u20110 \u31572 \u26696 \u32452 \u21512 \u30340 \u31616 \u21333 hash)\
+        let hash = (q1 * 7 + q2 * 13 + q3 * 19) % candidates.length;\
+        let selected = candidates[hash];\
+        // \uc0\u38450 \u27490 \u24847 \u22806 \
+        if(!selected) selected = spirits[0];\
+        return selected;\
+    \}\
+    \
+    // \uc0\u28210 \u26579 \u32467 \u26524 \
+    function displayResult(spirit) \{\
+        const resultDiv = document.getElementById('resultSection');\
+        const spiritCardDiv = document.getElementById('spiritCard');\
+        if(!spirit) return;\
+        spiritCardDiv.innerHTML = `\
+            <div class="spirit-icon"><i class="$\{spirit.icon\}"></i></div>\
+            <div class="spirit-name">$\{spirit.name\}</div>\
+            <div class="spirit-desc">$\{spirit.desc\}</div>\
+            <div class="spirit-quote"><i class="fas fa-quote-left"></i> $\{spirit.quote\} <i class="fas fa-quote-right"></i></div>\
+        `;\
+        // \uc0\u38544 \u34255 \u27979 \u35797 \u21306  \u26174 \u31034 \u32467 \u26524 \u21306 \
+        document.getElementById('quizSection').classList.add('hidden');\
+        resultDiv.classList.remove('hidden');\
+    \}\
+    \
+    // \uc0\u37325 \u32622 \u25152 \u26377 \
+    function resetQuiz() \{\
+        answers = [null, null, null];\
+        // \uc0\u28165 \u38500 \u25152 \u26377 \u36873 \u20013 \u30340 \u26679 \u24335 \
+        document.querySelectorAll('.option').forEach(opt => opt.classList.remove('selected'));\
+        // \uc0\u26174 \u31034 quiz\u37096 \u20998 \u65292 \u38544 \u34255 result\
+        document.getElementById('quizSection').classList.remove('hidden');\
+        document.getElementById('resultSection').classList.add('hidden');\
+        // \uc0\u28378 \u21160 \u21040 \u39030 \u37096 \
+        window.scrollTo(\{ top: 0, behavior: 'smooth' \});\
+    \}\
+    \
+    // \uc0\u25581 \u31034 \u25353 \u38062 \u36923 \u36753 \
+    const revealBtn = document.getElementById('revealBtn');\
+    revealBtn.addEventListener('click', () => \{\
+        // \uc0\u26816 \u26597 \u26159 \u21542 \u19977 \u20010 \u38382 \u39064 \u37117 \u22238 \u31572 \u20102 \
+        if(answers.includes(null)) \{\
+            // \uc0\u28201 \u26580 \u25552 \u31034 \
+            const unanswered = [];\
+            if(answers[0] === null) unanswered.push(1);\
+            if(answers[1] === null) unanswered.push(2);\
+            if(answers[2] === null) unanswered.push(3);\
+            alert(`\uc0\u10024  \u28789 \u38236 \u20302 \u35821 \u65306 \u35831 \u20808 \u23436 \u25104 \u31532 $\{unanswered.join('\u12289 ')\}\u20010 \u38382 \u39064 \u65292 \u20877 \u21484 \u21796 \u29260 \u28789  \u10024 `);\
+            return;\
+        \}\
+        const spirit = calculateSpirit();\
+        if(spirit) \{\
+            displayResult(spirit);\
+        \} else \{\
+            alert("\uc0\u21629 \u36816 \u20043 \u36718 \u36716 \u21160 \u24322 \u24120 \u65292 \u35831 \u20877 \u35797 \u19968 \u27425 ~");\
+        \}\
+    \});\
+    \
+    // \uc0\u37325 \u32622 \u25353 \u38062 \
+    const resetBtn = document.getElementById('resetBtn');\
+    resetBtn.addEventListener('click', resetQuiz);\
+    \
+    // \uc0\u21021 \u22987 \u21270 \u32465 \u23450 \
+    bindOptions();\
+    \
+    // \uc0\u20026 \u22686 \u21152 \u35270 \u35273 \u36259 \u21619 \u65292 \u22312 \u21345 \u29255 \u36793 \u32536 \u36731 \u24494 \u28014 \u21160 \u38452 \u24433 \u65288 \u35013 \u39280 \u65289 \
+    const container = document.querySelector('.tarot-container');\
+    if(container) \{\
+        container.style.transition = 'box-shadow 0.5s';\
+        setInterval(() => \{\
+            container.style.boxShadow = '0 20px 40px rgba(0,0,0,0.6), 0 0 0 1px rgba(218,185,125,0.3) inset';\
+            setTimeout(() => \{\
+                container.style.boxShadow = '0 25px 45px rgba(0,0,0,0.5), 0 0 0 1px rgba(218,185,125,0.1) inset';\
+            \}, 400);\
+        \}, 4000);\
+    \}\
+    \
+    // \uc0\u22686 \u21152 \u21021 \u22987 \u21344 \u21340 \u25552 \u31034 \
+    console.log("\uc0\u22612 \u32599 \u28789 \u38236 \u24050 \u24320 \u21551 \u65292 \u38745 \u20505 \u20320 \u30340 \u36873 \u25321 ");\
+</script>\
+</body>\
+</html>}
